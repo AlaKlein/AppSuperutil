@@ -27,7 +27,15 @@ public class MainActivity3 extends AppCompatActivity {
         btnAudio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                 ring.start();
+                try {
+                    if (!ring.isPlaying()) {
+                        ring.start();
+                    }
+                }
+
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
 
@@ -41,7 +49,14 @@ public class MainActivity3 extends AppCompatActivity {
         btnParar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ring.pause();
+                try {
+                    ring.stop();
+                    ring.prepare();
+                }
+
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
     }
